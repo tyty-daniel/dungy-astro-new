@@ -1,0 +1,48 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import kisumi from "../images/kisumi-2.jpg";
+
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header title={SITE_TITLE} />
+		<main class="max-w-4xl p-2 mx-auto md:p-4">
+			<div class="mx-md p-5 bg-white mx-5 border-blue-300 text-center">
+			<h1 class="font-sans text-blue-900 text-4xl">dungy</h1>
+			<p class="p-1 text-blue-500">
+				AKA qxoez
+			</p>
+			</div>
+			<div class="mx-auto flex flex-row my-2 py-2">
+				<div class="w-1/2 bg-white mx-2 p- px-2 text-blue-900 border-b border-blue-300">
+				  <h2 class="font-sans text-center text-xl text-blue-900">links</h2>
+				  <ul class="font-sans text-center">
+					<a href="/blog"><li>blog</li></a>
+					<a href="/startpage"><li>startpage</li></a>
+					<a href="https://rateyourmusic.com/~dungy" target="_blank"><li>rym</li></a>
+					<a href="https://myanimelist.net/profile/dungy" target="_blank"><li>mal</li></a>
+					<a href="https://twitter.com/qxoez" target="_blank"><li>twitter</li></a>
+				  </ul>
+				</div>
+				<div class="w-1/2 bg-white mx-2 p-1 px-2 text-blue-900 border-b border-blue-300">
+				  <h2 class="font-sans text-center text-xl text-blue-900">about me</h2>
+					<p class="font-sans text-blue-900">
+						Commie cokehead husbandoist and bara enthusiast
+					  </p>
+					</div>
+					</div>
+					<div class="mx-md p-2 mx-2 border-b border-blue-300">
+						<img src={kisumi} class="max-w-sm mx-auto"/>
+						</div>
+				  </main>
+		<Footer />
+	</body>
+</html>

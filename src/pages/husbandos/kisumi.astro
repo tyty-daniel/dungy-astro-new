@@ -1,0 +1,35 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+import kisumi from "../../images/kisumi-2.jpg";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<BaseHead title="kisumi" description="kisumi" />
+	</head>
+	<body>
+		<Header title={SITE_TITLE} />
+		<main class="max-w-4xl p-2 mx-auto md:p-4">
+			<h1 class="font-sans text-blue-900 text-4xl text-center">kisumi shigino</h1>
+			
+			<div class="flex flex-wrap justify-center m-3">
+				<img class="max-w-sm" src={kisumi}/>
+			 </div>
+             <div class="mx-md">
+                <p class="font-sans text-m">image source</p>
+                <p class="font-sans text-m">mega folder: (insert link)</p>
+				<p class="font-sans text-m">husbando type:</p>
+                <h2 class="font-sans text-xl text-center">how i found him</h2>
+                <p class="font-sans text-m">hurr</p>
+				<h2 class="font-sans text-xl text-center">why i like him</h2>
+				<p class="font-sans text-m">hurr</p>
+                    
+				</div>
+            				  </main>
+		<Footer />
+	</body>
+</html>

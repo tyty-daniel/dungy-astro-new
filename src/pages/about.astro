@@ -1,0 +1,39 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import kisumi from "../images/kisumi-2.jpg";
+
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<BaseHead title="about dungy" description="all about dungy" />
+	</head>
+	<body>
+		<Header title={SITE_TITLE} />
+		<main class="max-w-4xl p-2 mx-auto md:p-4">
+			<div class="p-5 mx-md bg-white mx-5 border-blue-300">
+			<h1 class="font-sans text-blue-900 text-4xl text-center">about dungy</h1>
+			 </div>
+             <div class="mx-md">
+                <p class="font-sans text-m">
+                    Welcome to my basic loser website smashed together in Astro. If you wanna reach out for whatever reason go to my contact page.
+                </p>
+                <p class="font-sans text-m">
+                    My only plans with this website is to maybe post about anime, history and some other shit. I'll expand this website overtime
+
+                </p>
+                <p class="font-sans text-m">
+                    get in touch @ me@dungy.space
+
+                </p>
+
+                <p class="italic text-s font-sans">this site is currently a WIP</p>
+             </div>
+            				  </main>
+		<Footer />
+	</body>
+</html>

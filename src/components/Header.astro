@@ -1,0 +1,22 @@
+---
+import HeaderLink from './HeaderLink.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<header class="bg-blue-900">
+	<div class="flex flex-wrap items-center justify-between max-w-4xl p-2 mx-auto md:p-4">
+		
+	<HeaderLink href="/"><h2 class="text-xl font-bold tracking-tight text-white">
+		{SITE_TITLE}
+	</h2>
+	</HeaderLink>
+	<nav>
+		<HeaderLink href="/husbandos" class="block mt-4 text-white no-underline md:inline-block md:mt-0 md:ml-6">husbandos</HeaderLink>
+		<HeaderLink href="/blog" class="block mt-4 text-white no-underline md:inline-block md:mt-0 md:ml-6">blog</HeaderLink>
+		<HeaderLink href="/about" class="block mt-4 text-white no-underline md:inline-block md:mt-0 md:ml-6">about</HeaderLink>
+		<HeaderLink href="/startpage" class="block mt-4 text-white no-underline md:inline-block md:mt-0 md:ml-6">startpage</HeaderLink>
+
+	</nav>
+	</div>
+</header>
+
