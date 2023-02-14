@@ -4,6 +4,9 @@ description: "Scarring film on a Byelorussian during the Nazi Occupation of Bela
 pubDate: "Sep 12 2022"
 heroImage: "/come-and-see-head.jpg"
 ---
+export const prerender = true;
+
+
 If my memory serves me correctly, I first saw this film on the [RYM ‘top films’ charts](https://rateyourmusic.com/charts/top/film/all-time/). I took interest in it being a Belarusian film - the only one of its kind on the chart - and the rather surreal cover it had.   
 
 The cover of a boy with seemingly aged eyes with a long-gone stare, a war-torn and haunted expression warped in a multi-coloured halo. I originally thought it was a sci-fi film judging by the cover, to which I was corrected seeing the genres of the film.    
