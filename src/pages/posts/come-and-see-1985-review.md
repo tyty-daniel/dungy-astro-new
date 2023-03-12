@@ -1,4 +1,5 @@
 ---
+layout: ../../layouts/BlogPost.astro
 title: "Come and See (1985) Review"
 description: "Scarring film on a Byelorussian during the Nazi Occupation of Belarus in World War 2. An amateur film review."
 pubDate: "Sep 12 2022"

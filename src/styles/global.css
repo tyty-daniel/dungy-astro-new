@@ -7,14 +7,13 @@ body {
 	font-family: Verdana, sans-serif;
 	padding: 1rem;
 	margin: auto;
-	max-width: 55%;
+	max-width: 900px;
 	background-color: #fff;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	color: #444;
 }
 h1,
-h2,
 h3,
 h4,
 h5,
@@ -22,6 +21,9 @@ h6,
 strong,
 b {
 	color: #222;
+}
+h2 {
+	font-size: 1.5rem;
 }
 a {
 	color: #3273dc;
@@ -41,10 +43,6 @@ content {
 }
 table {
 	width: 100%;
-}
-img {
-	max-width: 100%;
-	height: auto;
 }
 code {
 	padding: 2px 5px;

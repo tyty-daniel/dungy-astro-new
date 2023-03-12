@@ -1,4 +1,5 @@
 ---
+layout: ../../layouts/BlogPost.astro
 title: "(WIP) The British National Identity Crisis"
 description: "A not-well-done exploration in the progress of the national self-attitude towards the British Empire and its downfall"
 pubDate: "Sep 12 2022"

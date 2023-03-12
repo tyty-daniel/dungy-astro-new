@@ -29,6 +29,13 @@ import loid from "../images/loid-1.jpg";
 <html lang="en">
 	<head>
 		<BaseHead title="dungy's husbandos" description={SITE_DESCRIPTION} />
+        <style>
+            img {
+                width: "275";
+                height: "380";
+                object-fit: fill;
+            }
+        </style>
 	</head>
 	<body>
 		<Header title={SITE_TITLE} />
@@ -37,16 +44,26 @@ import loid from "../images/loid-1.jpg";
                 <h1 class="text-4xl font-sans">my husbandos</h1>
                 <p>my favourite fictional anime men accured throughout the years</p>
             </div>
-            <div class="flex justify-center items-center">
-            <div class="border-dashed border-2 border-blue-900 text-center font-sans max-w-md p-1">
+            <div class="mx-md m-1 justify-center items-center text-center">
+            <div class="border-dashed border-2 border-blue-900 text-center font-sans p-1">
                 <p class="text-sm">jump to: <a href="#free">free!</a> | <a href="#knb">kuroko no basuke</a> | <a href="#genshin">genshin impact</a> | <a href="#haikyuu">haikyuu</a> | <a href="#fe">fire emblem</a> | <a href="#other">other</a></p>
+            </div>
+            <div class="border-dashed border-2 border-blue-900 text-center font-sans p-1">
+                <h2 class="text-base">dungy's top husbandos</h2>
+                <ol class="text-sm">
+                    <a href="/husbandos/kisumi"><li>1. kisumi shigino</li></a>
+                    <a href="/husbandos/thoma"><li>2. thoma</li></a>
+                    <a href="/husbandos/dimitri"><li>3. dimitri</li></a>
+                    <a href="/husbandos/ushijima"><li>4. ushijima</li></a>
+                    <a href="/husbandos/minato"><li>5. minato</li></a>
+                </ol>
             </div>
             </div>
             <div class="m-1 mx-md text-center">
                 <h2 class="text-2xl font-sans" id="free">Free!</h2>
             <div class="flex flex-row p-1">
                 <a href="/husbandos/kisumi">
-                <div class="basis-1/3 hover:basis-1/2 duration-200 p-1">
+                <div class="basis-1/3 p-1">
                     <h3 class="text-xl font-sans">Kisumi Shigino</h3>
                     <img src={kisumi}>
                     <p>src:</p>
@@ -55,13 +72,13 @@ import loid from "../images/loid-1.jpg";
                         <a href="/husbandos/kisumi">kisumi</a></li></ul>
                 </div>
             </a>
-                <div class="basis-1/3 hover:basis-1/2 duration-200 p-1">
+                <div class="basis-1/3 p-1">
                     <h3 class="text-xl font-sans">Yamazaki Sousuke</h3>
                     <img src={sousuke}>
                     <p>src:</p>
                     <h3 class="text-sm">links</h3>
                 </div>
-                <div class="basis-1/3 hover:basis-1/2 duration-200 p-1">
+                <div class="basis-1/3 p-1">
                     <h3 class="text-xl font-sans">Makoto Tachibana</h3>
                     <img src={makoto}>
                     <p>src:</p>
