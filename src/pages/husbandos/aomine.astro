@@ -1,0 +1,35 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+import aomine from "../../images/aomine-19.jpg";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<BaseHead title="aomine" description="the ultimate husbando KISUMI" />
+	</head>
+	<body>
+		<Header title={SITE_TITLE} />
+		<main class="max-w-4xl p-2 mx-auto md:p-4">
+			<h1 class="font-sans text-blue-900 text-4xl text-center">aomine daiki</h1>
+			
+			<div class="flex flex-wrap justify-center m-3">
+				<img class="max-w-sm" src={aomine}/>
+			 </div>
+             <div class="mx-md">
+                <a href="https://www.pixiv.net/en/artworks/101797478"><p class="font-sans text-m">image source</p></a>
+                <a href="https://mega.nz/folder/DBJklLSS#3ZiAt95WVj1U_0yYUj9W_Q"><p class="font-sans text-m">mega folder</p></a>
+				<p class="font-sans text-m">husbando type:</p>
+				<h2 class="font-sans text-xl text-center">why i like him</h2>
+				<p class="font-sans text-m">just look at the above picture.</p>
+                <p class="font-sans text-m">i want him to grind his fat cock against my tight white ass while we're both wearing speedos on our holiday by the beach.</p>
+                <p class="font-sans text-m">i wanna lather him up in oil and get his black speedos nice and wet as he gets hard in them, then i can lick up and down his massive bulge while he calls me a good slut.</p>
+                    
+				</div>
+            				  </main>
+		<Footer />
+	</body>
+</html>
