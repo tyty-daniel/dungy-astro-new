@@ -12,7 +12,22 @@ const blog = defineCollection({
 		pubDate: z.coerce.date(),
 		updatedDate: z.coerce.date().optional(),
 		heroImage: z.string().optional(),
+		starterParagraph: z.string().optional(),
 	}),
 });
 
-export const collections = { blog };
+const husbandos = defineCollection({
+	loader: glob({ base: './src/content/husbandos', pattern: '**/*.{md,mdx}' }),
+	schema: z.object({
+		name: z.string(),
+		series: z.string(),
+		age: z.number(),
+		// Transform string to Date object
+		birthday: z.coerce.date(),
+		heroImage: z.string().optional(),
+		megaLink: z.string().optional(),
+		pubDate: z.coerce.date(),
+	}),
+});
+
+export const collections = { blog, husbandos };

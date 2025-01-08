@@ -32,18 +32,20 @@
 body {
 	font-family: 'Atkinson', sans-serif;
 	margin: 0;
-	padding: 0;
+	padding: 1rem;
 	text-align: left;
 	background: linear-gradient(var(--gray-gradient)) no-repeat;
 	background-size: 100% 600px;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	color: rgb(var(--gray-dark));
-	font-size: 20px;
-	line-height: 1.7;
+	font-size: 1rem;
+	line-height: 1.5;
+	max-width: 900px;
+	margin: auto;
 }
 main {
-	width: 720px;
+	width: 800px;
 	max-width: calc(100% - 2em);
 	margin: auto;
 	padding: 3em 1em;
@@ -99,11 +101,7 @@ input {
 table {
 	width: 100%;
 }
-img {
-	max-width: 100%;
-	height: auto;
-	border-radius: 8px;
-}
+
 code {
 	padding: 2px 5px;
 	background-color: rgb(var(--gray-light));
