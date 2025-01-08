@@ -3,6 +3,7 @@ title: '(WIP) The British National Identity Crisis'
 description: 'A not-well-done exploration in the progress of the national self-attitude towards the British Empire and its downfall'
 pubDate: 'Sep 12 2022'
 starterParagraph: 'From the America colonies, to dominating the world, to being a second-rate global power. How the Pax Brittania suffered through decolonisation, world wars and self-destruction.'
+heroImage: '/pissaro-sydenham.png'
 ---
 
 Sir John Major, former leader of the Conservative Party and former Prime Minister of the United Kingdom, delivered an apiphany of a speech on November 9. "We are no longer a great power," he states; a self-realization beget of the decline of the UK as a nation, former leader of the world. "We are a top second-rank world power." A conservative practically accepting defeat of the UK among the performance stage of the world powers is a tell-tale sign of our own demise of self-perception as a country, and consequently of how other nations continue to perceive us. 

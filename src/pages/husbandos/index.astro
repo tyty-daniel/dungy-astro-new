@@ -28,6 +28,7 @@ const posts = (await getCollection('husbandos')).sort(
 			}
 			ul li {
 				width: calc(50% - 1rem);
+				max-height: 360px;
 			}
 			ul li * {
 				text-decoration: none;
@@ -37,6 +38,8 @@ const posts = (await getCollection('husbandos')).sort(
 			ul li img {
 				margin-bottom: 0.5rem;
 				border-radius: 12px;
+				max-height: 360px;
+				object-fit: contain;
 			}
 			ul li a {
 				display: block;

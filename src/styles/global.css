@@ -84,6 +84,8 @@ a {
 }
 a:hover {
 	color: var(--accent);
+	text-decoration-line: underline;
+	animation: ease-in;
 }
 p {
 	margin-bottom: 1em;
