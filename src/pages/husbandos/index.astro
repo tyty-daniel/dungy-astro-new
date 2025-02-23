@@ -23,12 +23,16 @@ const posts = (await getCollection('husbandos')).sort(
 				flex-wrap: wrap;
 				gap: 2rem;
 				list-style-type: none;
-				margin: 0;
-				padding: 0;
+				margin: 1;
+				padding: 1;
 			}
 			ul li {
 				width: calc(50% - 1rem);
 				max-height: 360px;
+				margin: 1;
+				padding: 1;
+				margin-bottom: 0.5rem;
+				border: 1px solid rgb(var(--blue-300));
 			}
 			ul li * {
 				text-decoration: none;
@@ -37,9 +41,8 @@ const posts = (await getCollection('husbandos')).sort(
 			}
 			ul li img {
 				margin-bottom: 0.5rem;
-				border-radius: 12px;
 				max-height: 360px;
-				object-fit: contain;
+				object-fit: cover;
 			}
 			ul li a {
 				display: block;
@@ -49,17 +52,7 @@ const posts = (await getCollection('husbandos')).sort(
 				color: rgb(var(--black));
 				line-height: 1;
 			}
-			.date {
-				margin: 0;
-				color: rgb(var(--gray));
-			}
-			ul li a:hover h4,
-			ul li a:hover .date {
-				color: rgb(var(--accent));
-			}
-			ul a:hover img {
-				box-shadow: var(--box-shadow);
-			}
+
 			@media (max-width: 720px) {
 				ul {
 					gap: 0.5em;
@@ -84,23 +77,23 @@ const posts = (await getCollection('husbandos')).sort(
             <p class="p-1 text-blue-500">
                 my favourite fictional anime men accured throughout the years                </p>
             </div>
-            <div class="border-dashed border-2 border-blue-900 text-center font-sans p-1">
+            <div class="border-dashed border-2 border-blue-900 text-center font-sans p-1 m-4">
                 <h2 class="text-base">dungy's top husbandos</h2>
                 <ol class="text-sm">
                     <a href="/husbandos/thoma/"><li>1. thoma</li></a>
-                    <li>2. kisumi shigino</li>
-                    <li>3. loid forger</li>
-                    <li>4. himmel</li>
-                    <li>5. dimitri</li>
+                    <a href="/husbandos/kisumi/"><li>2. kisumi shigino</li></a>
+                    <a href="/husbandos/loid/"><li>3. loid forger</li></a>
+                    <a href="/husbandos/himmel/"><li>4. himmel</li></a>
+                    <a href="/husbandos/dimitri/"><li>5. dimitri</li></a>
                 </ol>
             </div>
 			<section>
-				<ul>
+				<ul class="m-1 flex flex-auto border border-dotted border-blue-300">
 					{
 						posts.map((post) => (
-							<li>
+							<li class="p-1">
 								<a href={`/husbandos/${post.id}/`}>
-									<img width={720} height={360} src={post.data.heroImage} alt="" />
+									<img class="object-top" width={700} height={360} src={post.data.heroImage} alt="" />
 									<h4 class="name">{post.data.name}</h4>
 									</p>
 								</a>

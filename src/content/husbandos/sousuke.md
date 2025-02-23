@@ -2,7 +2,7 @@
 name: 'Yamazaki Sousuke'
 series: 'Free!'
 age: 19
-heroImage: '/himmel-02.jpg'
+heroImage: '/sousuke-11.jpg'
 megaLink: "unknown"
 birthday: "4 January"
 pubDate: "30 Dec 2024"

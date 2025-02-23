@@ -23,7 +23,6 @@ const husbandos = defineCollection({
 		series: z.string(),
 		age: z.number(),
 		// Transform string to Date object
-		birthday: z.coerce.date(),
 		heroImage: z.string().optional(),
 		megaLink: z.string().optional(),
 		pubDate: z.coerce.date(),
