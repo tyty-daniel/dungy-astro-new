@@ -7,4 +7,4 @@ megaLink: "unknown"
 birthday: "4 January"
 pubDate: "30 Dec 2024"
 ---
-TO FILL OUT
+Prince Sidon of The Legend of Zelda is possibly my first "furry" (actually scalie if we're being pedantic) husbando. 

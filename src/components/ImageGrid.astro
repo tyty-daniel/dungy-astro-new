@@ -1,0 +1,16 @@
+---
+// src/components/ImageGrid.astro
+const { images } = Astro.props;
+---
+<style>
+    .image-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1rem;
+    }
+</style>
+<div class="image-grid">
+  {images.map(image => (
+    <img src={image.src} alt={image.alt} key={image.src} />
+  ))}
+</div>
