@@ -1,10 +1,12 @@
 ---
 name: 'Kise Ryouta'
 series: 'Kuroko no Basuke'
-age: 18
-heroImage: '/kise-01.png'
+heroImage: '/images/husbandos/kise/kise-01.png'
+heroImages: 
+    - '/images/husbandos/kise/kise-01.png'
+    - '/images/husbandos/kise/kise-01.jpg'
+heroImageAlt: 'Kise Ryouta fanart'
 megaLink: "unknown"
-birthday: "4 January"
-pubDate: "30 Dec 2024"
+birthday: "18 June"
 ---
-TO FILL OUT
+Kise Ryouta is very easily one of my first husbandos (alongside [Kagami](/husbandos/kagami) and [Aomine](/husbandos/aomine) in Kuruko no Basuke) and has a character type that's very typical for my collection of husbandos: blonde, tall, athlete/sporty, puppy-dog personality. 

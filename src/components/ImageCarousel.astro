@@ -1,0 +1,61 @@
+---
+const images = [
+  '/images/husbandos/kisumi/kisumi-01.png',
+  '/images/husbandos/thoma/thoma-03.jpg',
+  '/images/husbandos/ranok/ranok-01.jpg',
+  '/images/husbandos/seth/seth-01.jpg',
+  // Add your image URLs here
+];
+---
+
+<style>
+  .carousel-wrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    border-radius: 8px;
+    border: 4px transparent solid;
+    margin-top: 2px;
+  }
+
+  .carousel-track {
+    display: flex;
+    width: calc(250px * 8); /* image width * total number of images * 2 */
+    animation: scroll-left 40s linear infinite;
+  }
+
+  .carousel-track:hover {
+    animation-play-state: paused;
+  }
+
+  .carousel-image {
+    width: 384px;
+    height: 384px;
+    object-fit: cover;
+    object-position: top;
+    flex-shrink: 0;
+    margin-right: 10px;
+    border-radius: 8px;
+  }
+
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-250px * 4 - 40px)); /* scroll width of half the images + margin */
+    }
+  }
+</style>
+
+<div class="carousel-wrapper">
+  <div class="carousel-track">
+    {/* We duplicate images so the scroll looks seamless */}
+    {images.map((src) => (
+      <img class="carousel-image" src={src} alt="Carousel Image" />
+    ))}
+    {images.map((src) => (
+      <img class="carousel-image" src={src} alt="Carousel Image duplicate" />
+    ))}
+  </div>
+</div>

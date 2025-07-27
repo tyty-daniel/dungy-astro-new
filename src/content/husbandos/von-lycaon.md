@@ -3,9 +3,9 @@ name: 'Von Lycaon'
 series: 'Zenless Zone Zero'
 age: 22
 heroImage: '/lycaon-01.jpg'
+heroImageAlt: 'Von Lycaon fanart'
 megaLink: "unknown"
-birthday: "4 January"
-pubDate: "30 Dec 2024"
+birthday: "4 October"
 ---
 During Zenless Zone Zero's initial marketing phase and character previews, Von Lycaon generated a stir online for being the first playable furry character in a Hoyoverse game and admittely a handsome wolf with an interesting design including leather straps. 
 

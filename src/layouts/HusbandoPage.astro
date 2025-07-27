@@ -3,63 +3,124 @@ import type { CollectionEntry } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import ImageSwitcher from '../components/ImageSwitcher.jsx';
 
 type Props = CollectionEntry<'husbandos'>['data'];
 
-const { name, series, age, birthday, heroImage, megaLink } = Astro.props;
+const { name, series, age, birthday, heroImage, megaLink, heroImages, heroImageAlt } = Astro.props;
+const altText = heroImageAlt || title; // Use title as fallback if empty
+
+// Determine which images to use
+const images = heroImages && heroImages.length > 0 
+  ? heroImages 
+  : heroImage 
+    ? [heroImage] 
+    : [];
+
+const hasMultipleImages = images.length > 1;
 ---
 
 <html lang="en">
 	<head>
 		<BaseHead title={name} />
-		<style>
-			main {
-				width: calc(100% - 2em);
-				max-width: 100%;
-				margin: 0;
-			}
-			.hero-image {
+		
+		// ...existing code...
+        <style>
+            main {
+                width: 100%;
+                max-width: 100%;
+                margin: 0;
+                padding: 0 0.5em;
+            }
+            
+           .hero-container {
 				width: 100%;
 			}
-			.hero-image img {
+			.hero-container img {
 				display: block;
-				margin: 0 auto;
+				margin: 10px auto;
 				border-radius: 12px;
 				box-shadow: var(--box-shadow);
+                max-height: 400px;
 			}
-			.prose {
-				width: 720px;
-				max-width: calc(100% - 2em);
-				margin: auto;
-				padding: 1em;
-				color: rgb(var(--gray-dark));
-			}
-			.title {
-				margin-bottom: 1em;
-				padding: 1em 0;
-				text-align: center;
-				line-height: 1;
-			}
-			.title h1 {
-				margin: 0 0 0.5em 0;
-			}
-			.date {
-				margin-bottom: 0.5em;
-				color: rgb(var(--gray));
-			}
-			.last-updated-on {
-				font-style: italic;
-			}
-		</style>
+            .prose {
+                width: 100%;
+                max-width: 720px;
+                margin: auto;
+                color: rgb(var(--gray-dark));
+                padding: 0 0.5em;
+            }
+            .title {
+                margin-bottom: 1em;
+                padding: 1em 0;
+                text-align: center;
+                line-height: 1;
+            }
+            .title h1 {
+                margin: 0 0 0.5em 0;
+                font-size: 2em;
+            }
+            h2 {
+                margin: 0;
+                font-size: 1.2em;
+            }
+            .prose img {
+                max-width: 400px;
+                height: auto;
+                margin: 10px auto;
+                display: block;
+                padding: 0.5em;
+            }
+            @media (max-width: 720px) {
+                .prose {
+                    padding: 0 0.25em;
+                    font-size: 1em;
+                }
+                .title h1 {
+                    font-size: 1.5em;
+                }
+                .hero-image img {
+                    max-width: 100%;
+                }
+            }
+            .date {
+                margin-bottom: 0.5em;
+                color: rgb(var(--gray));
+            }
+            .last-updated-on {
+                font-style: italic;
+            }
+            lite-youtube {
+                display: block;
+                margin: 0.5em auto;
+                max-width: 100%;
+            }
+            
+        </style>
+// ...existing code...
 	</head>
 
 	<body>
 		<Header />
 		<main>
 			<article>
-				<div class="hero-image">
-					{heroImage && <img class="max-w-96" src={heroImage} alt="" />}
-				</div>
+				 {images.length > 0 && (
+      <div class="hero-container">
+        {hasMultipleImages ? (
+          <ImageSwitcher 
+            images={images} 
+            alt={heroImageAlt || title}
+            client:load 
+          />
+        ) : (
+          <img 
+            src={images[0]} 
+            alt={heroImageAlt || title}
+            class="hero-image-single"
+          />
+        )}
+      </div>
+    )}
 				<div class="prose">
 					<div class="title">
 	

@@ -15,9 +15,9 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 		<BaseHead title={title} description={description} />
 		<style>
 			main {
-				width: calc(100% - 2em);
 				max-width: 100%;
-				margin: 0;
+				margin: 0 auto;
+				
 			}
 			.hero-image {
 				width: 100%;
@@ -33,9 +33,9 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			}
 			.prose {
 				width: 720px;
-				max-width: calc(100% - 2em);
+				max-width: calc(100% - 0.5em);
 				margin: auto;
-				padding: 1em;
+				padding: 0.5em;
 				color: rgb(var(--gray-dark));
 			}
 			.title {
@@ -54,6 +54,35 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			.last-updated-on {
 				font-style: italic;
 			}
+			.prose img {
+    height: 400px;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin: 0.5em auto;
+    display: block;
+    width: 100%;
+  }
+  /* Group consecutive images in a flex row */
+  .prose p:has(img) {
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+  }
+  .prose p:has(img) img {
+    width: 100%;
+    max-width: 48%;
+    margin: 0;
+  }
+  @media (max-width: 720px) {
+    .prose p:has(img) {
+      flex-direction: column;
+      gap: 0.5em;
+    }
+    .prose p:has(img) img {
+      max-width: 100%;
+    }
+  }
 		</style>
 	</head>
 

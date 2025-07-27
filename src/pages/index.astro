@@ -3,7 +3,8 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-
+import ImageCarousel from '../components/ImageCarousel.astro';
+import { Image } from 'astro:assets';
 ---
 
 <!DOCTYPE html>
@@ -13,14 +14,14 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	</head>
 	<body>
 		<Header title={SITE_TITLE} />
-		<main class="max-w-4xl p-2 mx-auto md:p-4">
-			<div class="mx-md p-3 mx-5 border-blue-300 text-center">
+		<main class="max-w-4xl mx-auto md:p-4">
+			<div class="mx-md p-1 mx-3 border-blue-300 text-center">
 			<h1 class="font-sans text-blue-900 text-4xl">dungy</h1>
 			<p class="p-1 text-blue-500">
 				AKA qxoez, Daniel
 			</p>
 			</div>
-			<div class="mx-auto flex flex-row my-1 py-1">
+			<div class="mx-auto flex flex-row">
 				<div class="w-1/2 mx-2 p- px-2 text-blue-900 border-b border-blue-300">
 				  <h2 class="font-sans text-center text-xl text-blue-900">links</h2>
 				  <ul class="font-sans text-center">
@@ -39,10 +40,8 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 					</div>
 					</div>
 				</div>
-				<div class="mx-auto px-2 p-1 mx-2 border-b border-blue-300 flex flex-row max-h-96">
-					<img class="w-96 mx-md p-2 object-cover object-top" src="/thoma-03.jpg" alt="thoma" />
-					<img class="w-96 mx-md p-2 object-cover object-top" src="/kisumi-01.png" alt="kisumi" />
-					</div>
+
+				<ImageCarousel />
 				  </main>
 		<Footer />
 	</body>

@@ -1,10 +1,9 @@
 ---
 name: 'Miya Atsumu'
 series: 'Haikyuu!!'
-age: 22
 heroImage: '/atsumu-52.jpg'
+heroImageAlt: 'Miya Atsumu fanart'
 megaLink: "unknown"
-birthday: "4 January"
-pubDate: "30 Dec 2024"
+birthday: "5 October"
 ---
 To fill out

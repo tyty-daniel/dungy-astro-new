@@ -6,7 +6,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('husbandos')).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+  (a, b) => a.data.name.toLowerCase().localeCompare(b.data.name.toLowerCase())
 );
 ---
 
@@ -55,11 +55,12 @@ const posts = (await getCollection('husbandos')).sort(
 
 			@media (max-width: 720px) {
 				ul {
-					gap: 0.5em;
+					gap: 2em;
 				}
 				ul li {
 					width: 100%;
 					text-align: center;
+					max-height: 360px;
 				}
 				ul li:first-child {
 					margin-bottom: 0;

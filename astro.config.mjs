@@ -9,9 +9,11 @@ import favicons from 'astro-favicons';
 
 import netlify from '@astrojs/netlify';
 
+import preact from '@astrojs/preact';
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://example.com',
-  integrations: [mdx(), sitemap(), tailwind(), favicons()],
+  integrations: [mdx(), sitemap(), tailwind(), favicons(), preact()],
   adapter: netlify(),
 });

@@ -21,12 +21,11 @@ const husbandos = defineCollection({
 	schema: z.object({
 		name: z.string(),
 		series: z.string(),
-		age: z.number(),
-		// Transform string to Date object
 		heroImage: z.string().optional(),
+		heroImages: z.array(z.string()).optional(),
+		heroImageAlt: z.string().optional().default(''),
 		megaLink: z.string().optional(),
-		pubDate: z.coerce.date(),
-	}),
+		birthday: z.string().optional(),}),
 });
 
 export const collections = { blog, husbandos };

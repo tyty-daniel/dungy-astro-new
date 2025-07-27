@@ -14,7 +14,10 @@
 	--gray-gradient: rgba(var(--gray-light), 50%), #fff;
 	--box-shadow: 0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%),
 		0 16px 32px rgba(var(--gray), 33%);
+
 }
+@import 'swiper/swiper-bundle.min.css';
+
 @font-face {
 	font-family: 'Atkinson';
 	src: url('/fonts/atkinson-regular.woff') format('woff');
@@ -29,20 +32,22 @@
 	font-style: normal;
 	font-display: swap;
 }
+html {
+	background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+	min-height: 100%;
+}
 body {
 	font-family: 'Atkinson', sans-serif;
 	margin: 0;
 	padding: 1rem;
 	text-align: left;
 	word-wrap: break-word;
-	background-image: radial-gradient(circle, from-indigo-500 via purple-500 to-pink-500);
 	overflow-wrap: break-word;
 	color: rgb(var(--gray-dark));
 	font-size: 1rem;
 	line-height: 1.5;
-	max-width: 1000px;
 	margin: auto;
-	background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+	background: transparent
 
 }
 main {

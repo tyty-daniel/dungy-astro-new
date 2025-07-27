@@ -2,7 +2,7 @@
 title: 'What is a husbando?'
 description: 'Exploring the concept of husbando - male anime characters as objects of desire. Etymology, other Japanese terminology, and an outline of online cultures. '
 pubDate: 'Mar 04 2025'
-heroImage: '/public/images/blog/magritte-the-pilgrim.jpg'
+heroImage: '/images/blog/magritte-the-pilgrim.jpg'
 starterParagraph: 'An insight into what a husbando is'
 ---
 A husbando is a male (anime) character that you are romantically and/or sexually attracted to. Quite literally, you would want them to be your husband if they were a real person. 
@@ -21,8 +21,8 @@ There are ranges to having a husbando. A person may have multiple husbandos or j
 
 In Japan, people can actually get married to their husbando - both formally or informally. People can hire companies that would setup the wedding day and hire photographers. A recent example of this from this year is Instagram user yoichi_o4o1 getting married to Blue Lock character Isagi Yoichi, which sparked lots of attention and plenty of SEO-spammy articles.
 
-![yoichi_o4o1's marriage to Isagi Yoichi](/public/images/blog/isagi-wedding-1.jpg)
-![yoichi_o4o1's marriage to Isagi Yoichi](/public/images/blog/isagi-wedding-2.jpg)
+![yoichi_o4o1's marriage to Isagi Yoichi](/images/blog/isagi-wedding-1.jpg)
+![yoichi_o4o1's marriage to Isagi Yoichi](/images/blog/isagi-wedding-2.jpg)
 
 
 As geeks, scenes like this are bound to get negative attention from people, hence leading to her making her accounts private. But this is not a standout case. Perhaps the most famous of these is the man who married Hatsune Miku in 2018. Going onto this topic will, however, steer into the realm of [fictosexuality](https://unherd.com/2023/10/we-are-all-fictosexuals-now/). 
