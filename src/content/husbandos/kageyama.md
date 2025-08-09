@@ -1,6 +1,6 @@
 ---
 name: 'Kageyama Tobio'
-series: 'Haikyuu!'
+series: 'Haikyuu!!'
 age: 22
 heroImage: '/kageyama-01.jpg'
 heroImageAlt: 'Kageyama Tobio fanart'

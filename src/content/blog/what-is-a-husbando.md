@@ -11,18 +11,18 @@ Although not inherently restrictive to being an anime character, the terminology
 
 Husbandos are the male version of waifu. Both have been popular for decades in the anime community (both Eastern and Western) across male and female anime fans, where having a husbando/waifu is increasingly popular with anime's popularity rise since the pandemic. The terms themselves, however, are proportionately seeing a decrease in usage and knowledge across the Western community. 
 
-## Etymology and Terminology
+## Etymology and terminology
 "Husbando" and "Waifu" are both essentially anglicized versions of the Japanese loanwords for husband and wife respectively. These translations have caught on due to their overly Japanese-sounding style within the Western Otaku community and have spread since. 
 
 In Japan, there are words for people who have a dedication to their husbando or waifu. "Yumejoshi" is the word for a woman who 'ships' themselves with an anime character. "Yumedanshi" is the male version of "Yumejoshi". (Note the same suffixes applied for people who enjoy yaoi - "Fujoshi" and "Fudanshi").
-Having a husbando
+ 
+## Having a husbando
 
 There are ranges to having a husbando. A person may have multiple husbandos or just one. There obviously has to be a threshold to having an attraction to them, but the intensity may vary. 
 
 In Japan, people can actually get married to their husbando - both formally or informally. People can hire companies that would setup the wedding day and hire photographers. A recent example of this from this year is Instagram user yoichi_o4o1 getting married to Blue Lock character Isagi Yoichi, which sparked lots of attention and plenty of SEO-spammy articles.
 
-![yoichi_o4o1's marriage to Isagi Yoichi](/images/blog/isagi-wedding-1.jpg)
-![yoichi_o4o1's marriage to Isagi Yoichi](/images/blog/isagi-wedding-2.jpg)
+![yoichi_o4o1's marriage to Isagi Yoichi](/images/blog/isagi-wedding-1.jpg) ![yoichi_o4o1's marriage to Isagi Yoichi](/images/blog/isagi-wedding-2.jpg)
 
 
 As geeks, scenes like this are bound to get negative attention from people, hence leading to her making her accounts private. But this is not a standout case. Perhaps the most famous of these is the man who married Hatsune Miku in 2018. Going onto this topic will, however, steer into the realm of [fictosexuality](https://unherd.com/2023/10/we-are-all-fictosexuals-now/). 

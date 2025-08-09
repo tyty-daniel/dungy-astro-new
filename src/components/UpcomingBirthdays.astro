@@ -1,0 +1,98 @@
+---
+import { getCollection } from 'astro:content';
+
+// Get all anime characters from the collection
+const characters = await getCollection('husbandos'); // Replace 'characters' with your collection name
+
+// Get current date
+const today = new Date();
+const currentYear = today.getFullYear();
+
+// Helper function to calculate days until birthday
+function getDaysUntilBirthday(birthday) {
+  const birthDate = new Date(birthday);
+  
+  // Set birthday to current year
+  let nextBirthday = new Date(currentYear, birthDate.getMonth(), birthDate.getDate());
+  
+  // If birthday has passed this year, use next year
+  if (nextBirthday < today) {
+    nextBirthday = new Date(currentYear + 1, birthDate.getMonth(), birthDate.getDate());
+  }
+  
+  // Calculate days difference
+  const timeDiff = nextBirthday.getTime() - today.getTime();
+  const daysDiff = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+  
+  return {
+    days: daysDiff,
+    date: nextBirthday
+  };
+}
+
+// Process characters and sort by upcoming birthdays
+const upcomingBirthdays = characters
+  .filter(character => character.data.birthday) // Only characters with birthdays
+  .map(character => {
+    const birthdayInfo = getDaysUntilBirthday(character.data.birthday);
+    return {
+      ...character,
+      slug: character.id.split('/').pop(), // Extract just the filename
+      daysUntil: birthdayInfo.days,
+      nextBirthday: birthdayInfo.date,
+      formattedDate: birthdayInfo.date.toLocaleDateString('en-US', { 
+        month: 'long', 
+        day: 'numeric' 
+      })
+    };
+  })
+  .sort((a, b) => a.daysUntil - b.daysUntil)
+  .slice(0, 3); // Show top 3 upcoming birthdays
+
+// Helper function to format the days text
+function getDaysText(days) {
+  if (days === 0) return "Today!";
+  if (days === 1) return "Tomorrow";
+  return `in ${days} days`;
+}
+
+// Helper function to get color classes based on days
+function getDaysColorClass(days, isFirst) {
+  if (isFirst && days <= 7) return "text-green-600 font-bold";
+  if (days === 0) return "text-green-600 font-semibold";
+  if (days === 1) return "text-emerald-600 font-semibold";
+  if (days <= 7) return "text-orange-600 font-medium";
+  return "text-red-600 font-medium";
+}
+---
+
+<div class="p-6 rounded-lg my-4">
+  <h2 class="text-2xl text-blue-900 mb-4">Upcoming Husbando Birthdays</h2>
+  
+  {upcomingBirthdays.length > 0 ? (
+    <ul class="space-y-3">
+      {upcomingBirthdays.map((character, index) => (
+        <li>
+          <a 
+            href={`/husbandos/${character.slug}`} 
+            class="flex justify-between items-center p-4  rounded-md shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 group"
+          >
+            <div class="flex flex-col">
+              <span class=" text-gray-800 group-hover:text-blue-600 transition-colors">
+                {character.data.name}
+              </span>
+              <span class="text-sm text-gray-600">
+                {character.formattedDate}
+              </span>
+            </div>
+            <div class={`text-sm whitespace-nowrap ${getDaysColorClass(character.daysUntil, index === 0)}`}>
+              {getDaysText(character.daysUntil)}
+            </div>
+          </a>
+        </li>
+      ))}
+    </ul>
+  ) : (
+    <p class="text-gray-600">No upcoming birthdays found.</p>
+  )}
+</div>

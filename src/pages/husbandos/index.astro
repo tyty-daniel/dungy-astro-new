@@ -4,6 +4,8 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
+import UpcomingBirthdays from '../../components/UpcomingBirthdays.astro';
+import SeriesFilter from '../../components/SeriesFilter.jsx';
 
 const posts = (await getCollection('husbandos')).sort(
   (a, b) => a.data.name.toLowerCase().localeCompare(b.data.name.toLowerCase())
@@ -12,102 +14,71 @@ const posts = (await getCollection('husbandos')).sort(
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<BaseHead title="dungy's husbandos" description={SITE_DESCRIPTION} />
-		<style>
-			main {
-				width: 960px;
-			}
-			ul {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 2rem;
-				list-style-type: none;
-				margin: 1;
-				padding: 1;
-			}
-			ul li {
-				width: calc(50% - 1rem);
-				max-height: 360px;
-				margin: 1;
-				padding: 1;
-				margin-bottom: 0.5rem;
-				border: 1px solid rgb(var(--blue-300));
-			}
-			ul li * {
-				text-decoration: none;
-                text-align: center;
-				transition: 0.2s ease;
-			}
-			ul li img {
-				margin-bottom: 0.5rem;
-				max-height: 360px;
-				object-fit: cover;
-			}
-			ul li a {
-				display: block;
-			}
-			.title {
-				margin: 0;
-				color: rgb(var(--black));
-				line-height: 1;
-			}
-
-			@media (max-width: 720px) {
-				ul {
-					gap: 2em;
-				}
-				ul li {
-					width: 100%;
-					text-align: center;
-					max-height: 360px;
-				}
-				ul li:first-child {
-					margin-bottom: 0;
-				}
-				ul li:first-child .title {
-					font-size: 1.563em;
-				}
-			}
-		</style>
-	</head>
-	<body>
-		<Header />
-		<main>
-            <h1 class="font-sans text-blue-900 text-4xl">husbandos</h1>
-            <p>
-                my favourite fictional anime men accured throughout the years                </p>
-				<p>see <a href="/blog/what-is-a-husbando/">what a husbando is here</a></p>
+    <head>
+        <BaseHead title="dungy's husbandos" description={SITE_DESCRIPTION} />
+        <style>
+            main {
+                width: 960px;
+                max-width: 100vw;
+                margin: 0 auto;
+            }
+            .flex-main {
+                display: flex;
+                flex-direction: column;
+                gap: 2rem;
+            }
+            @media (min-width: 900px) {
+                .flex-main {
+                    flex-direction: row;
+                    align-items: flex-start;
+                    justify-content: space-between;
+                }
+                .left-col {
+                    width: 55%;
+                    min-width: 300px;
+                }
+                .right-col {
+                    width: 45%;
+                    min-width: 260px;
+                }
+            }
+            @media (max-width: 900px) {
+                .flex-main {
+                    flex-direction: column;
+                }
+                .left-col, .right-col {
+                    width: 100%;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <Header />
+        <main>
+            <div class="flex-main">
+                <div class="left-col">
+                    <h1 class="font-sans text-blue-900 text-4xl m-0">husbandos</h1>
+                    <p>my favourite fictional anime men accured throughout the years</p>
+                    <p>see <a href="/blog/what-is-a-husbando/">what a husbando is here</a></p>
+                    <div class="border-dashed border-2 border-blue-900 text-center font-sans p-1 m-4">
+                        <h2 class="text-base">dungy's top husbandos</h2>
+                        <ol class="text-sm">
+                            <a href="/husbandos/thoma/"><li>1. thoma</li></a>
+                            <a href="/husbandos/kisumi/"><li>2. kisumi shigino</li></a>
+                            <a href="/husbandos/loid/"><li>3. loid forger</li></a>
+                            <a href="/husbandos/himmel/"><li>4. himmel</li></a>
+                            <a href="/husbandos/von-lycaon/"><li>5. von lycaon</li></a>
+                        </ol>
+                    </div>
+                </div>
+                <div class="right-col">
+                    <UpcomingBirthdays />
+                </div>
             </div>
-            <div class="border-dashed border-2 border-blue-900 text-center font-sans p-1 m-4">
-                <h2 class="text-base">dungy's top husbandos</h2>
-                <ol class="text-sm">
-                    <a href="/husbandos/thoma/"><li>1. thoma</li></a>
-                    <a href="/husbandos/kisumi/"><li>2. kisumi shigino</li></a>
-                    <a href="/husbandos/loid/"><li>3. loid forger</li></a>
-                    <a href="/husbandos/himmel/"><li>4. himmel</li></a>
-                    <a href="/husbandos/von-lycaon/"><li>5. von lycaon</li></a>
-                </ol>
-            </div>
-			<section>
-				<ul class="m-1 flex flex-auto border border-dotted border-blue-300">
-					{
-						posts.map((post) => (
-							<li class="p-1">
-								<a href={`/husbandos/${post.id}/`}>
-									<img class="object-top" width={700} height={360} src={post.data.heroImage} alt="" />
-									<h4 class="name">{post.data.name}</h4>
-									</p>
-								</a>
-							</li>
-						))
-					}
-				</ul>
-			</section>
-		</main>
-		<Footer />
-	</body>
+            <section>
+                <SeriesFilter husbandos={posts} client:load />
+            </section>
+        </main>
+        <Footer />
+    </body>
 </html>
-
-
-
