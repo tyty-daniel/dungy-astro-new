@@ -10,6 +10,10 @@ import SeriesFilter from '../../components/SeriesFilter.jsx';
 const posts = (await getCollection('husbandos')).sort(
   (a, b) => a.data.name.toLowerCase().localeCompare(b.data.name.toLowerCase())
 );
+
+// Split husbandos by category
+const realHusbandos = posts.filter(h => (h.data.category || 'husbando') === 'husbando');
+const honourableMentions = posts.filter(h => h.data.category === 'honourable-mention');
 ---
 
 <!doctype html>
@@ -60,6 +64,7 @@ const posts = (await getCollection('husbandos')).sort(
                     <h1 class="font-sans text-blue-900 text-4xl m-0">husbandos</h1>
                     <p>my favourite fictional anime men accured throughout the years</p>
                     <p>see <a href="/blog/what-is-a-husbando/">what a husbando is here</a></p>
+                    <p><a href="/husbandos/calendar/">view birthday calendar 📅</a></p>
                     <div class="border-dashed border-2 border-blue-900 text-center font-sans p-1 m-4">
                         <h2 class="text-base">dungy's top husbandos</h2>
                         <ol class="text-sm">
@@ -76,8 +81,16 @@ const posts = (await getCollection('husbandos')).sort(
                 </div>
             </div>
             <section>
-                <SeriesFilter husbandos={posts} client:load />
+                <h2 class="text-2xl font-sans text-blue-900 mb-4">real husbandos</h2>
+                <SeriesFilter husbandos={realHusbandos} category="husbando" client:load />
             </section>
+            
+            {honourableMentions.length > 0 && (
+                <section class="mt-8">
+                    <h2 class="text-2xl font-sans text-blue-900 mb-4">honourable mentions</h2>
+                    <SeriesFilter husbandos={honourableMentions} category="honourable-mention" client:load />
+                </section>
+            )}
         </main>
         <Footer />
     </body>

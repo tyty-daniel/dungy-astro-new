@@ -10,19 +10,25 @@ const currentYear = today.getFullYear();
 
 // Helper function to calculate days until birthday
 function getDaysUntilBirthday(birthday) {
-  const birthDate = new Date(birthday);
+  // Parse birthday format like "9 January" or "26 May"
+  const birthDate = new Date(`${birthday} ${currentYear}`);
   
   // Set birthday to current year
   let nextBirthday = new Date(currentYear, birthDate.getMonth(), birthDate.getDate());
   
-  // If birthday has passed this year, use next year
-  if (nextBirthday < today) {
+  // Reset time to start of day for accurate comparison
+  const todayStart = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+  const birthdayStart = new Date(nextBirthday.getFullYear(), nextBirthday.getMonth(), nextBirthday.getDate());
+  
+  // If birthday has passed this year (but not today), use next year
+  if (birthdayStart < todayStart) {
     nextBirthday = new Date(currentYear + 1, birthDate.getMonth(), birthDate.getDate());
+    birthdayStart.setFullYear(currentYear + 1);
   }
   
   // Calculate days difference
-  const timeDiff = nextBirthday.getTime() - today.getTime();
-  const daysDiff = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+  const timeDiff = birthdayStart.getTime() - todayStart.getTime();
+  const daysDiff = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
   
   return {
     days: daysDiff,
@@ -32,7 +38,7 @@ function getDaysUntilBirthday(birthday) {
 
 // Process characters and sort by upcoming birthdays
 const upcomingBirthdays = characters
-  .filter(character => character.data.birthday) // Only characters with birthdays
+  .filter(character => character.data.birthday && character.data.birthday !== "Unknown") // Only characters with known birthdays
   .map(character => {
     const birthdayInfo = getDaysUntilBirthday(character.data.birthday);
     return {
@@ -50,8 +56,8 @@ const upcomingBirthdays = characters
   .slice(0, 3); // Show top 3 upcoming birthdays
 
 // Helper function to format the days text
-function getDaysText(days) {
-  if (days === 0) return "Today!";
+function getDaysText(days, characterName) {
+  if (days === 0) return `Happy Birthday, ${characterName}! 🎉`;
   if (days === 1) return "Tomorrow";
   return `in ${days} days`;
 }
@@ -85,8 +91,8 @@ function getDaysColorClass(days, isFirst) {
                 {character.formattedDate}
               </span>
             </div>
-            <div class={`text-sm whitespace-nowrap ${getDaysColorClass(character.daysUntil, index === 0)}`}>
-              {getDaysText(character.daysUntil)}
+            <div class={`text-sm ${character.daysUntil === 0 ? 'max-w-32 text-right' : 'whitespace-nowrap'} ${getDaysColorClass(character.daysUntil, index === 0)}`}>
+              {getDaysText(character.daysUntil, character.data.name)}
             </div>
           </a>
         </li>

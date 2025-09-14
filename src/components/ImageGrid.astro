@@ -1,5 +1,6 @@
 ---
 // src/components/ImageGrid.astro
+import LightboxWrapper from './LightboxWrapper.jsx';
 const { images } = Astro.props;
 ---
 <style>
@@ -9,8 +10,4 @@ const { images } = Astro.props;
         gap: 1rem;
     }
 </style>
-<div class="image-grid">
-  {images.map(image => (
-    <img src={image.src} alt={image.alt} key={image.src} />
-  ))}
-</div>
+<LightboxWrapper images={images} client:load />

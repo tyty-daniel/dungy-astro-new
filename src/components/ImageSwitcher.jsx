@@ -1,8 +1,10 @@
 import { useState } from 'preact/hooks';
+import Lightbox from './Lightbox.jsx';
 import './ImageSwitcher.css'; // We'll create this next
 
 const ImageSwitcher = ({ images = [], alt = "Switchable image" }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
 
   if (!images.length) {
     return <div>No images provided</div>;
@@ -24,6 +26,8 @@ const ImageSwitcher = ({ images = [], alt = "Switchable image" }) => {
         src={images[currentIndex]} 
         alt={`${alt} ${currentIndex + 1}`}
         className="switcher-image"
+        onClick={() => setLightboxOpen(true)}
+        style={{ cursor: 'pointer' }}
       />
       
       <button 
@@ -58,6 +62,13 @@ const ImageSwitcher = ({ images = [], alt = "Switchable image" }) => {
           />
         ))}
       </div>
+
+      <Lightbox 
+        isOpen={lightboxOpen}
+        onClose={() => setLightboxOpen(false)}
+        imageSrc={images[currentIndex]}
+        imageAlt={`${alt} ${currentIndex + 1}`}
+      />
     </div>
   );
 };

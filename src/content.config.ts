@@ -25,7 +25,11 @@ const husbandos = defineCollection({
 		heroImages: z.array(z.string()).optional(),
 		heroImageAlt: z.string().optional().default(''),
 		megaLink: z.string().optional(),
-		birthday: z.string().optional(),}),
+		birthday: z.string().optional(),
+		japaneseName: z.string().optional(),
+		category: z.enum(['husbando', 'honourable-mention']).optional().default('husbando'),
+		fandomLink: z.string().url().optional(),
+	}),
 });
 
 export const collections = { blog, husbandos };

@@ -3,7 +3,7 @@
   display: block;
   width: 100%;
   height: 500px; /* Fixed height */
-  max-width: 800px;
+  max-width: 350px !important;
   margin: 10px auto; /* Center the container */
   border-radius: 8px;
   overflow: hidden;
@@ -19,6 +19,13 @@
   width: auto;
   height: auto;
   object-fit: contain;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.switcher-image:hover {
+  transform: translate(-50%, -50%) scale(1.02);
+  opacity: 0.9;
 }
 
 /* Alternative: Cover style for fixed height */

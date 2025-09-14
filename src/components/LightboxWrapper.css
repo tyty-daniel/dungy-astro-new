@@ -1,0 +1,32 @@
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.image-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.grid-image {
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    border-radius: 8px;
+    width: 100%;
+    height: auto;
+}
+
+.grid-image:hover {
+    transform: scale(1.02);
+    opacity: 0.9;
+}
+
+.image-caption {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #666;
+    text-align: center;
+    font-style: italic;
+    line-height: 1.3;
+}

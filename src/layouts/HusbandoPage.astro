@@ -4,11 +4,17 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ImageSwitcher from '../components/ImageSwitcher.jsx';
+import TableOfContents from '../components/TableOfContents.astro';
+import LightboxImage from '../components/LightboxImage.jsx';
 
-type Props = CollectionEntry<'husbandos'>['data'];
+type Props = CollectionEntry<'husbandos'>['data'] & {
+  headings?: { depth: number; slug: string; text: string }[];
+};
 
-const { name, series, age, birthday, heroImage, megaLink, heroImages, heroImageAlt } = Astro.props;
-const altText = heroImageAlt || title; // Use title as fallback if empty
+const { name, series, fandomLink, birthday, heroImage, megaLink, heroImages, heroImageAlt, headings, japaneseName } = Astro.props;
+
+// Handle both case variations of japaneseName
+const altText = heroImageAlt || name; // Use name as fallback if empty
 
 // Determine which images to use
 const images = heroImages && heroImages.length > 0 
@@ -22,7 +28,7 @@ const hasMultipleImages = images.length > 1;
 
 <html lang="en">
 	<head>
-		<BaseHead title={name} />
+		<BaseHead title={name}/>
 		
 		// ...existing code...
         <style>
@@ -35,6 +41,8 @@ const hasMultipleImages = images.length > 1;
             
            .hero-container {
 				width: 100%;
+				max-width: 350px;
+				margin: 0 auto;
 			}
 			.hero-container img {
 				display: block;
@@ -42,6 +50,14 @@ const hasMultipleImages = images.length > 1;
 				border-radius: 12px;
 				box-shadow: var(--box-shadow);
                 max-height: 400px;
+                max-width: 350px !important;
+                width: auto;
+                cursor: pointer;
+                transition: transform 0.2s ease, opacity 0.2s ease;
+			}
+			.hero-container img:hover {
+				transform: scale(1.02);
+				opacity: 0.9;
 			}
             .prose {
                 width: 100%;
@@ -51,8 +67,8 @@ const hasMultipleImages = images.length > 1;
                 padding: 0 0.5em;
             }
             .title {
-                margin-bottom: 1em;
-                padding: 1em 0;
+                margin-bottom: 0.2em;
+                padding: 0.5em 0;
                 text-align: center;
                 line-height: 1;
             }
@@ -60,9 +76,10 @@ const hasMultipleImages = images.length > 1;
                 margin: 0 0 0.5em 0;
                 font-size: 2em;
             }
-            h2 {
-                margin: 0;
-                font-size: 1.2em;
+            
+            .prose h2 {
+                padding: 0.5em 0;
+                font-size: 1rem;
             }
             .prose img {
                 max-width: 400px;
@@ -80,7 +97,8 @@ const hasMultipleImages = images.length > 1;
                     font-size: 1.5em;
                 }
                 .hero-image img {
-                    max-width: 100%;
+                    max-width: 350px;
+
                 }
             }
             .date {
@@ -109,14 +127,15 @@ const hasMultipleImages = images.length > 1;
         {hasMultipleImages ? (
           <ImageSwitcher 
             images={images} 
-            alt={heroImageAlt || title}
+            alt={heroImageAlt || name}
             client:load 
           />
         ) : (
-          <img 
+          <LightboxImage 
             src={images[0]} 
-            alt={heroImageAlt || title}
-            class="hero-image-single"
+            alt={heroImageAlt || name}
+            className="hero-image-single"
+            client:load
           />
         )}
       </div>
@@ -125,10 +144,13 @@ const hasMultipleImages = images.length > 1;
 					<div class="title">
 	
 						<h1>{name}</h1>
-						<h2>Series: {series}</h2>
+						<p>Series: {series}</p>
 						<p>Birthday: {birthday}</p>
+                        {japaneseName && <p>Japanese Name: {japaneseName}</p>}
+                        <p>link: {fandomLink} <p>
 						<hr />
 					</div>
+					<TableOfContents headings={headings} />
 					<slot />
 				</div>
 			</article>

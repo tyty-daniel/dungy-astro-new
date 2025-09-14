@@ -15,9 +15,9 @@ export async function getStaticPaths() {
 type Props = CollectionEntry<'husbandos'>;
 
 const post = Astro.props;
-const { Content } = await render(post);
+const { Content, headings } = await render(post);
 ---
 
-<HusbandoPage {...post.data}>
+<HusbandoPage {...post.data} headings={headings}>
 	<Content />
-</Husbandopage>
+</HusbandoPage>

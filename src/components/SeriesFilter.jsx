@@ -1,15 +1,21 @@
 import { useState, useEffect } from 'preact/hooks';
+import './SeriesFilter.css';
 
-export default function SeriesFilter({ husbandos }) {
+export default function SeriesFilter({ husbandos, category = 'all' }) {
   const [selectedSeries, setSelectedSeries] = useState('all');
   
-  // Get unique series from husbandos
-  const allSeries = [...new Set(husbandos.map(h => h.data.series))].sort();
+  // Filter by category first
+  const categoryFilteredHusbandos = category === 'all' 
+    ? husbandos 
+    : husbandos.filter(h => (h.data.category || 'husbando') === category);
+  
+  // Get unique series from category-filtered husbandos
+  const allSeries = [...new Set(categoryFilteredHusbandos.map(h => h.data.series))].sort();
   
   // Filter husbandos based on selected series
   const filteredHusbandos = selectedSeries === 'all' 
-    ? husbandos 
-    : husbandos.filter(h => h.data.series === selectedSeries);
+    ? categoryFilteredHusbandos 
+    : categoryFilteredHusbandos.filter(h => h.data.series === selectedSeries);
 
   const handleSeriesChange = (e) => {
     setSelectedSeries(e.target.value);
@@ -37,12 +43,11 @@ export default function SeriesFilter({ husbandos }) {
       <ul className="m-1 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 border border-dotted border-blue-300 overflow-y-auto">
         {filteredHusbandos.map((post) => (
           <li key={post.id} className="p-1 flex flex-col items-center">
-            <a href={`/husbandos/${post.id}/`}>
+            <a href={`/husbandos/${post.id}/`} className="husbando-card">
               <img
-                className="object-top w-full object-cover rounded"
+                className="object-top w-full object-cover rounded h-64"
                 src={post.data.heroImage}
                 alt=""
-                style="max-width: 100%;"
               />
               <h4 className="name text-center mt-2">{post.data.name}</h4>
               <p className="text-xs text-gray-600 text-center">{post.data.series}</p>

@@ -14,6 +14,9 @@ import preact from '@astrojs/preact';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://example.com',
-  integrations: [mdx(), sitemap(), tailwind(), favicons(), preact()],
+  integrations: [mdx(), sitemap(), tailwind(), favicons({
+    masterPicture: './src/assets/favicon.jpg',
+    emitAssets: true,
+  }), preact()],
   adapter: netlify(),
 });

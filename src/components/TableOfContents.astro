@@ -1,0 +1,84 @@
+---
+interface Props {
+  headings: { depth: number; slug: string; text: string }[];
+}
+
+const { headings } = Astro.props;
+
+// Filter to only show h2 and h3 headings
+const filteredHeadings = headings.filter(heading => heading.depth <= 3);
+---
+
+{filteredHeadings.length > 0 && (
+  <nav class="table-of-contents">
+    <h2>Table of Contents</h2>
+    <ul>
+      {filteredHeadings.map((heading) => (
+        <li class={`toc-level-${heading.depth}`}>
+          <a href={`#${heading.slug}`}>{heading.text}</a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+)}
+
+<style>
+  .table-of-contents {
+    background: rgba(var(--accent-light), 0.1);
+    border: 1px solid rgba(var(--accent), 0.2);
+    border-radius: 8px;
+    padding: 0.5rem;
+    margin: 1rem 0;
+  }
+
+  .table-of-contents h2 {
+    margin: 0 0 0.5rem 0;
+    font-size: 0.8rem;
+    color: rgb(var(--accent));
+  }
+
+  .table-of-contents ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .table-of-contents li {
+    margin: 0;
+  }
+
+  .table-of-contents a {
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    color: rgb(var(--gray-dark));
+    transition: color 0.2s ease;
+    font-size: 0.9rem;
+    font-style: italic
+  }
+
+  .table-of-contents a:hover {
+    color: rgb(var(--accent));
+  }
+
+  .toc-level-2 {
+    font-weight: 500;
+  }
+
+  .toc-level-3 {
+    font-weight: normal;
+  }
+
+  @media (max-width: 720px) {
+    .table-of-contents {
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+    
+    .table-of-contents h2 {
+      font-size: 1.1rem;
+    }
+  }
+</style>
